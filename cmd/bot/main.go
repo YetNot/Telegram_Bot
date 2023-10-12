@@ -33,6 +33,11 @@ func main() {
 	commander := commands.NewCommander(bot, productService)
 
 	for update := range updates {
+		defer func() {
+			if panicValue := recover(); panicValue != nil {
+				log.Printf("recovered from panic: %v", panicValue)
+			}
+		}()
 		if update.Message != nil { // If we got a message
 
 			switch update.Message.Command() {
@@ -40,6 +45,8 @@ func main() {
 				commander.Help(update.Message)
 			case "list":
 				commander.List(update.Message)
+			case "get":
+				commander.Get(update.Message)
 			default:
 				commander.Default(update.Message)
 			}
