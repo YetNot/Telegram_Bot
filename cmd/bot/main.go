@@ -54,6 +54,12 @@ func main() {
 				commander.List(update.Message)
 			case "get":
 				commander.Get(update.Message)
+			case "new":
+				commander.New(update.Message)
+			case "edit":
+				commander.Edit(update.Message)
+			case "delete":
+				commander.Delete(update.Message)						
 			default:
 				commander.Default(update.Message)
 			}

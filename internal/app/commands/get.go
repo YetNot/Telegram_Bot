@@ -17,10 +17,10 @@ func (c *Commander) Get(inputMessage *tgbotapi.Message) {
 		return
 	}
 
-	product, err := c.productService.Get(idx)
+	product, err := c.productService.Describe(idx)
 	if err != nil {
 		log.Printf("all to get product %d: %v", idx, err)
-		return		
+		return
 	}
 
 	msg := tgbotapi.NewMessage(inputMessage.Chat.ID, fmt.Sprintf("successfully parsed argument: %v", product.Title))

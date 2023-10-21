@@ -8,7 +8,8 @@ import (
 
 func (c *Commander) Default(inputMessage *tgbotapi.Message) {
 	log.Printf("[%s] %s", inputMessage.From.UserName, inputMessage.Text)
-	msg := tgbotapi.NewMessage(inputMessage.Chat.ID, "Асалам Алейкум, девчёнки! Молодцы, что это пишете: "+inputMessage.Text)
+	msg := tgbotapi.NewMessage(inputMessage.Chat.ID, "Асэалам Алейкум, девчёнки! Молодцы, что это пишете: "+inputMessage.Text)
 	//msg.ReplyToMessageID = update.Message.MessageID
 	c.bot.Send(msg)
+	
 }

@@ -1,13 +1,8 @@
 package product
 
-var allProducts = []Product {
-	{Title: "one"},
-	{Title: "two"},
-	{Title: "three"},
-	{Title: "four"},
-	{Title: "five"},
-}
+var AllProducts []Product
 
 type Product struct {
+	ID int
 	Title string
 }
